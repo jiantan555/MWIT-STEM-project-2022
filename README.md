@@ -1,3 +1,4 @@
+# MWIT-STEM-project-2022
 coding environment:
     ubuntu 22.04 (jammy jellyfish)
     virtual environment from anaconda
@@ -38,5 +39,3 @@ line 87:
         z: time remained to finish
         reserve: is reserve?
 
-# MWIT-STEM-project-2022
-# MWIT-STEM-project-2022
