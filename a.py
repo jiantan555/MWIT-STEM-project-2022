@@ -1,6 +1,9 @@
 from time import time
+import serial
 from flask import Flask, render_template, request
 app = Flask(__name__)
+
+arduino = serial.Serial(port='COM4', baudrate=115200, timeout=.1)
 
 a = [0, 0, 0, 0, 0, 0, 0]
 t = [int(time()), int(time()), int(time()),
@@ -8,13 +11,20 @@ t = [int(time()), int(time()), int(time()),
 wait = [0, 0, 0, 0, 0, 0, 0]
 z = [0, 0, 0, 0, 0, 0, 0]
 reserve = [0, 0, 0, 0, 0, 0, 0]
+prev_data = 0
 
 @app.route('/', methods=["GET", "POST"])
 def index():
+    data = arduino.readline()
+    if data != prev_data:
+        if data != 0:
+            a[0] = 1
+            t[0] = int(time())
+    prev_data = data
 
     global a, t, wait, z
     for i in range(0, 7):
-        if (int(time())-t[i])//60 >= 5:
+        if (int(time())-t[i])//60 >= 52:
             a[i] = 0
 
     if request.method == 'POST':
@@ -71,7 +81,7 @@ def index():
             wait[6] = int(time())
         
     for i in range(0, 7):
-        z[i] = 5 - (int(time())-t[i])//60
+        z[i] = 52 - (int(time())-t[i])//60
     return render_template('index.html', x=a, y=z, reserve=reserve)
 
 
