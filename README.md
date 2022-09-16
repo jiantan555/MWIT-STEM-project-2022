@@ -4,7 +4,7 @@
 - virtual environment from anaconda
 - python version 3.10.4
 - flask version 2.1.3
-    - pyserial version 3.5
+- pyserial version 3.5
 
 
 ## recieve data module: inputer.py
