@@ -11,12 +11,13 @@
 
 ### line 4: 
 - define variable named arduino connecting to usb port with serial module
-### line 6: repeat this following forever:
-- line 7: read data from port (sent by arduino uno)
-- line 9-14: if data has number 1 do this following:
-  1. note this moment's time into **file state.txt**
-  2. stop module for 10 seconds
-- line 15: wait 0.1 seconds
+### line 6: 
+repeat line 7-15 this following forever:
+  - line 7: read data from port (sent by arduino uno)
+  - line 9-14: if data has number 1 do this following:
+    1. note this moment's time into **file state.txt**
+    2. stop module for 10 seconds
+  - line 15: wait 0.1 seconds
 
 
 ## main program: app.py
