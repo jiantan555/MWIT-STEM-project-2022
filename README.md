@@ -19,7 +19,7 @@
 - line 15: wait 0.1 seconds
 
 
-### main program: app.py
+## main program: app.py
 
 ### line 7-11: 
 - declare variable:
